@@ -25,9 +25,9 @@
     ?>
     <tr>
       <td><?php echo $row["id"]; ?></td>
-      <td><?php echo $row["name"]; ?></td>
-      <td><?php echo $row["email"]; ?></td>
-      <td><button class="btn btn-danger" id="del" onclick="del()">Delete</button></td>
+      <td contenteditable="true" id="<?php echo $row["id"]; ?>" onblur="update('#<?php echo $row["id"]; ?>','<?php echo $row["id"]; ?>')"><?php echo $row["name"]; ?></td>
+      <td contenteditable="true" class="<?php echo $row["id"]; ?>" onblur="updatemail('.<?php echo $row["id"]; ?>','<?php echo $row["id"]; ?>')"><?php echo $row["email"]; ?></td>
+      <td><a class="delete_data btn btn-danger" del_id="<?php echo $row["id"]; ?>" onclick="del(<?php echo $row["id"];?>)">Delete</a></td>
     </tr>
     <?php } ?>
 
