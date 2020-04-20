@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+  <body onload="users()">
+
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-sm nav-fill bg-dark">
+        <form class="form-inline" action="">
+          <label class="text-white">Email:  </label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+          <label class="text-white">Password:  </label>
+          <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+
+          <button type="submit" id="btn" class="btn btn-primary">Submit</button>
+
+        </form>
+      </nav>
+    </div>
+    <div id="details"></div>
+
+    <script type="text/javascript">
+      function users(){
+        $(document).ready(function(){
+          $.ajax({
+            type:'get',
+            url:'load.php',
+            success:function(data){
+              $("#details").html(data);
+            }
+          });
+        });
+      }
+    </script>
+    
+    <script type="text/javascript" src="jQuery.js"></script>
+    <script type="text/javascript" src="crud.js"></script>
+  </body>
+</html>
